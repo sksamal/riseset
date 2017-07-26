@@ -9,24 +9,27 @@ public class DarkSkyAPITester {
 		String url = "https://api.darksky.net/forecast/";
 		String loc = "40.806862,-96.681679";
 		long unixTime = 0;
+		String units = "auto";
 		String exclude = "exclude=flags";
 
 		if (args.length < 2) {
-			System.out.println("java DarkSkyAPITester <lat> <lon> [exclude] [unixtime]");
+			System.out.println("java DarkSkyAPITester <lat> <lon> [units] [exclude] [unixtime]");
 			System.exit(-1);		
 		}
 			
 		if (args.length > 1)
 			loc = args[0] + "," + args[1];
 		if (args.length > 2)
-			exclude = "exclude=" + args[2];
-		if (args.length > 3) {
-			if(args[3].contains("+")) {
+			units = "units=" + args[2];
+		if (args.length > 3)
+			exclude = "exclude=" + args[3];
+		if (args.length > 4) {
+			if(args[4].contains("+")) {
 				long nowTime = (new java.util.Date()).getTime()/1000;
-				unixTime = nowTime + Long.parseLong(args[3].substring(args[3].indexOf("+")+1));
+				unixTime = nowTime + Long.parseLong(args[4].substring(args[4].indexOf("+")+1));
 		}
 			else
-				unixTime = Long.parseLong(args[3]);
+				unixTime = Long.parseLong(args[4]);
 		}
 
 		// URL weather = new
