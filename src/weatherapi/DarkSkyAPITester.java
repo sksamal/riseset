@@ -37,9 +37,9 @@ public class DarkSkyAPITester {
 
 		URL forecast ;
 		if(unixTime==0)
-			forecast= new URL(url + apiKey + "/" + loc + "?" + exclude);
+			forecast= new URL(url + apiKey + "/" + loc + "?" + units + "&" + exclude);
 		else
-		    forecast = new URL(url + apiKey + "/" + loc + "," + unixTime + "?" + exclude);
+		    forecast = new URL(url + apiKey + "/" + loc + "," + unixTime + "?" + units + "&" + exclude);
 
 		String inputLine;
 
